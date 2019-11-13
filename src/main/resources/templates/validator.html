@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IBAN validator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Check an IBAN</h1>
+<p></p>
+<p> To check whether an IBAN number is valid, please enter it here: </p>
+<form action="#" th:action="@{/api/v1/validator}" th:object="${validator}" method="post">
+    <p>IBAN: <input type="text" th:field="*{ibanOriginalNumber}" /></p>
+    <p><input type="submit" value="Validate" /> <input type="reset" value="Reset" /></p>
+</form>
+
+<p> To check whether an IBAN numbers from file are valid, please enter file path here: </p>
+<form action="#" th:action="@{/api/v1/filevalidator}" th:object="${validatorFile}" method="post">
+    <p>IBAN: <input type="text" th:field="*{path}" /></p>
+    <p><input type="submit" value="Validate" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
